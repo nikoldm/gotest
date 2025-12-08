@@ -3,4 +3,6 @@ go 1.25
 use (
 	task1
 	task2
+	task3
+	.
 )
