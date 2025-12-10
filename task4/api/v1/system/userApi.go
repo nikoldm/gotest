@@ -47,5 +47,5 @@ func (UserApi *UserApi) GetUserInfo(c *gin.Context) {
 	if !err {
 		return
 	}
-	fmt.Println(userId)
+	fmt.Println(userId, "24342342342344============")
 }

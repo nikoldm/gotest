@@ -24,7 +24,7 @@ func main() {
 	// 初始化数据库
 	config.InitDatabase()
 	// 设置路由
-	r := initialize.Routers()
+	r := initialize.InitRouters()
 
 	// 启动服务器
 	port := os.Getenv("PORT")
