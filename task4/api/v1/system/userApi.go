@@ -26,11 +26,17 @@ type AuthResp struct {
 }
 
 func (UserApi *UserApi) Register(c *gin.Context) {
-	var req RegisterReq
-	if err := c.ShouldBindJSON(&req); err != nil {
+	var r RegisterReq
+	if err := c.ShouldBindJSON(&r); err != nil {
 		return
 	}
-	fmt.Println(req.Username)
+	user := &system.User{Username: r.Username, Password: r.Password, Email: r.Email}
+	userReturn, err := userService.Register(*user)
+	if err != nil {
+		fmt.Println("注册失败", c, userReturn)
+		return
+	}
+
 }
 
 func (UserApi *UserApi) Login(c *gin.Context) {
