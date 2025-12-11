@@ -6,10 +6,10 @@ type CommentRouter struct{}
 
 func (s *CommentRouter) InitCommentRouter(Router *gin.RouterGroup, RouterPub *gin.RouterGroup) {
 
-	commentRouter := Router.Group("user")
-	commentRouterPub := RouterPub.Group("user")
+	commentRouter := Router.Group("comment")
+	commentRouterPub := RouterPub.Group("comment")
 	{
-		commentRouter.POST("", commentApi.CreateComment)
+		commentRouter.POST("/post/:post_id", commentApi.CreateComment)
 
 	}
 	{

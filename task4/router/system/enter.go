@@ -4,6 +4,8 @@ import api "task4/api/v1"
 
 type RouterGroup struct {
 	UserRouter
+	PostRouter
+	CommentRouter
 	// 扩展多个
 }
 
