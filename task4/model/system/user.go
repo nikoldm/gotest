@@ -17,7 +17,7 @@ type User struct {
 }
 
 // BeforeCreate GORM钩子，在创建用户前自动哈希密码
-func (u *User) BeforeCreate(tx *gorm.DB) error {
+func (u *User) BeforeCreate(*gorm.DB) error {
 	u.Password = utils.BcryptHash(u.Password)
 	return nil
 }

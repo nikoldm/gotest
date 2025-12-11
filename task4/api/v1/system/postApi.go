@@ -80,7 +80,11 @@ func (p *PostApi) DeletePost(c *gin.Context) {
 		return
 	}
 	userID := c.MustGet("user_id")
-	postService.DeletePost(postID, userID)
+	err1 := postService.DeletePost(postID, userID)
+	if err1 != nil {
+		global.BadRequest(c, "删除文章失败")
+		return
+	}
 	global.Success(c, gin.H{"message": "文章删除成功"})
 }
 
